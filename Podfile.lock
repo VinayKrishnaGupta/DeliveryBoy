@@ -1,0 +1,73 @@
+PODS:
+  - Alamofire (4.4.0)
+  - AWSCore (2.6.0)
+  - AWSPolly (2.6.0):
+    - AWSCore (= 2.6.0)
+  - CocoaAsyncSocket (7.5.1):
+    - CocoaAsyncSocket/GCD (= 7.5.1)
+  - CocoaAsyncSocket/GCD (7.5.1)
+  - GzipSwift (3.1.4)
+  - HyperTrack (0.4.41):
+    - Alamofire (= 4.4.0)
+    - GzipSwift
+    - JustLog
+    - SQLite.swift (= 0.11.2)
+  - JustLog (1.3.0):
+    - CocoaAsyncSocket (~> 7.5.0)
+    - SwiftyBeaver (~> 1.4.0)
+  - Mapbox-iOS-SDK (3.6.2)
+  - MapboxCoreNavigation (0.7.0):
+    - MapboxDirections.swift (~> 0.10)
+    - MapboxMobileEvents (~> 0.2)
+    - OSRMTextInstructions (~> 0.3)
+  - MapboxDirections.swift (0.10.1):
+    - Polyline (~> 4.1)
+  - MapboxMobileEvents (0.2.9)
+  - MapboxNavigation (0.7.0):
+    - AWSPolly (~> 2.6)
+    - Mapbox-iOS-SDK (~> 3.6)
+    - MapboxCoreNavigation (= 0.7.0)
+    - Pulley (= 1.4)
+    - SDWebImage (~> 4.1)
+    - Solar (~> 2.0)
+  - OSRMTextInstructions (0.3.2):
+    - MapboxDirections.swift (~> 0.10)
+  - Polyline (4.1.1)
+  - Pulley (1.4)
+  - SDWebImage (4.1.0):
+    - SDWebImage/Core (= 4.1.0)
+  - SDWebImage/Core (4.1.0)
+  - Solar (2.0.0)
+  - SQLite.swift (0.11.2):
+    - SQLite.swift/standard (= 0.11.2)
+  - SQLite.swift/standard (0.11.2)
+  - SwiftyBeaver (1.4.0)
+
+DEPENDENCIES:
+  - HyperTrack
+  - MapboxNavigation (~> 0.7.0)
+
+SPEC CHECKSUMS:
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  AWSCore: a232d9a402ac11d76f3d87222a3f777e81b85abf
+  AWSPolly: b3c432f2c24bcaec2aa71c7ca6fddf2128b736ef
+  CocoaAsyncSocket: e0a7e93b2ffa411592ff87e58524fbbc9b95b4fa
+  GzipSwift: 11ddb2bf253b1cd7b60bb169da20f62ac4348769
+  HyperTrack: e4f4093c42b694e0a2d9b6efca96cbf263d0a93f
+  JustLog: 88ddc70d5c1e8dcc4de3b94899905975c180e9b2
+  Mapbox-iOS-SDK: 1224c5ba79dc9bf9a80bfcc33ae320f5d672a42f
+  MapboxCoreNavigation: fa0b93c33751205720c859295e5e45e1da28e6f3
+  MapboxDirections.swift: f4bf08ec7fa653e35c4fc264998aaa6a515e9825
+  MapboxMobileEvents: 942320e1784067509c4d456d58cd0a8dbff5ac7c
+  MapboxNavigation: e2adff1c070b9a40901bcb394e68793eacac169e
+  OSRMTextInstructions: 023e93c2f025da166bbe3be43ab2151a900fd42d
+  Polyline: 381d1e699fd12508f97cfc468478dfbab67edf1f
+  Pulley: 3d47a5ca819b8f35a63e9a4811d35035d484d1d9
+  SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
+  Solar: ea092f7660c1b58d2b754227decb61a1c6710826
+  SQLite.swift: 670c3e9e0a806bbfd56a3de5d530768dc0e6fe7c
+  SwiftyBeaver: 78d9186ce7595b4400ce01e5fd750d263e72dd7b
+
+PODFILE CHECKSUM: 8e2a78a834c1d918a4b28517268529721fc00ae3
+
+COCOAPODS: 1.3.1

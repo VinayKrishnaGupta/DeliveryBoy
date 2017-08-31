@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import HyperTrack
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +18,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Initialize HyperTrack SDK with your Publishable Key here
+        // Refer to documentation at
+        // https://docs.hypertrack.com/gettingstarted/authentication.html
+        // @NOTE: Add **"pk_76fd93d70e525d4f01fd9200af4d13e4cc2b28a3"** here for SDK to be
+        // authenticated with HyperTrack Server
+        HyperTrack.initialize("pk_76fd93d70e525d4f01fd9200af4d13e4cc2b28a3")
+        
+        // Request For Location Always Usage authorization before proceeding
+        // further with identifying user.
+        // @NOTE: Before this, Make sure to go to the Info tab in your app settings
+        // and add permission strings for "Privacy - Location Always
+        // Usage Description" and "Privacy - Motion Usage Description"
+        // Refer to https://docs.hypertrack.com/sdks/ios/setup.html for more info.
+        HyperTrack.requestAlwaysAuthorization()
+        HyperTrack.requestMotionAuthorization()
+
+
+        
         return true
     }
 

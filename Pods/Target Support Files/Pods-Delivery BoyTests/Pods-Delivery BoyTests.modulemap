@@ -1,0 +1,6 @@
+framework module Pods_Delivery_BoyTests {
+  umbrella header "Pods-Delivery BoyTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

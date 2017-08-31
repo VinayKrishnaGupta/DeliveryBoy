@@ -20,6 +20,20 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MGLMapboxAccessToken</key>
+	<string>pk.eyJ1IjoidmluYXlyc3QiLCJhIjoiY2o3MGFwcmNnMDY0NjJ3bXN1M3VwdHc5dCJ9.J5VdA6xybdk6xMQpGkNSrw</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Using Location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Using location</string>
+	<key>NSMotionUsageDescription</key>
+	<string>Using Motion</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>location</string>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
