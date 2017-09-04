@@ -6,6 +6,16 @@ PODS:
   - CocoaAsyncSocket (7.5.1):
     - CocoaAsyncSocket/GCD (= 7.5.1)
   - CocoaAsyncSocket/GCD (7.5.1)
+  - GoogleMaps (2.4.0):
+    - GoogleMaps/Maps (= 2.4.0)
+  - GoogleMaps/Base (2.4.0)
+  - GoogleMaps/Maps (2.4.0):
+    - GoogleMaps/Base
+  - GooglePlacePicker (2.4.0):
+    - GoogleMaps (= 2.4.0)
+    - GooglePlaces (= 2.4.0)
+  - GooglePlaces (2.4.0):
+    - GoogleMaps/Base (= 2.4.0)
   - GzipSwift (3.1.4)
   - HyperTrack (0.4.41):
     - Alamofire (= 4.4.0)
@@ -44,6 +54,9 @@ PODS:
   - SwiftyBeaver (1.4.0)
 
 DEPENDENCIES:
+  - GoogleMaps
+  - GooglePlacePicker
+  - GooglePlaces
   - HyperTrack
   - MapboxNavigation (~> 0.7.0)
 
@@ -52,6 +65,9 @@ SPEC CHECKSUMS:
   AWSCore: a232d9a402ac11d76f3d87222a3f777e81b85abf
   AWSPolly: b3c432f2c24bcaec2aa71c7ca6fddf2128b736ef
   CocoaAsyncSocket: e0a7e93b2ffa411592ff87e58524fbbc9b95b4fa
+  GoogleMaps: 8436ab5d1c25e36915b2f7416d0c8e3fa2e76c61
+  GooglePlacePicker: 755f10343d71280c7b016823e73fbae9625dfa8a
+  GooglePlaces: aafe5990fa7951e98e078761bbdaaf236d7e0c65
   GzipSwift: 11ddb2bf253b1cd7b60bb169da20f62ac4348769
   HyperTrack: e4f4093c42b694e0a2d9b6efca96cbf263d0a93f
   JustLog: 88ddc70d5c1e8dcc4de3b94899905975c180e9b2
@@ -68,6 +84,6 @@ SPEC CHECKSUMS:
   SQLite.swift: 670c3e9e0a806bbfd56a3de5d530768dc0e6fe7c
   SwiftyBeaver: 78d9186ce7595b4400ce01e5fd750d263e72dd7b
 
-PODFILE CHECKSUM: 8e2a78a834c1d918a4b28517268529721fc00ae3
+PODFILE CHECKSUM: 1755bde2e4fa021344dedadc4c6f8a4dfb5b2639
 
 COCOAPODS: 1.3.1

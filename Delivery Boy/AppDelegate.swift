@@ -8,6 +8,9 @@
 
 import UIKit
 import HyperTrack
+import GoogleMaps
+import GooglePlaces
+
 
 
 @UIApplicationMain
@@ -18,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        GMSServices.provideAPIKey("AIzaSyBQHA9_DicyK4M2fmpWHcGlDPLw8CJd3MA")
+        GMSPlacesClient.provideAPIKey("AIzaSyBQHA9_DicyK4M2fmpWHcGlDPLw8CJd3MA")
         
         // Initialize HyperTrack SDK with your Publishable Key here
         // Refer to documentation at

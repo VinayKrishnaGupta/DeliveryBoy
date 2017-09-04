@@ -9,6 +9,9 @@ target 'Delivery Boy' do
 pod 'MapboxNavigation', '~> 0.7.0'
   use_frameworks!
 pod 'HyperTrack'
+pod 'GoogleMaps'
+pod 'GooglePlaces'
+pod 'GooglePlacePicker'
 
   target 'Delivery BoyTests' do
     inherit! :search_paths
