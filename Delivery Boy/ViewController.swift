@@ -9,11 +9,11 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         // Check if user is logged in already
-        if (HyperTrack.isTracking) {
-            // Start User Session by starting LogoutViewController
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "action")
-            self.present(vc!, animated: true, completion: nil)
-        }
+//        if (HyperTrack.isTracking) {
+//            // Start User Session by starting LogoutViewController
+//            let vc = self.storyboard?.instantiateViewController(withIdentifier: "action")
+//            self.present(vc!, animated: true, completion: nil)
+//        }
     }
     
     override func viewDidLoad() {
@@ -72,8 +72,11 @@ class ViewController: UIViewController {
         HyperTrack.startTracking()
         
         // Start user session by navigating to LogOutViewController
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "action")
-        self.present(vc!, animated: true, completion: nil)
+        
+        self.performSegue(withIdentifier: "MyTasks", sender: self)
+        
+//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "action")
+//        self.present(vc!, animated: true, completion: nil)
     }
     
     func showAlert(_ title: String = "Alert", message: String) {
