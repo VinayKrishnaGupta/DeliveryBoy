@@ -4,67 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>AWSCore.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>AWSPolly.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Alamofire.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>CocoaAsyncSocket.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>GzipSwift.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>HyperTrack-HyperTrack.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>HyperTrack.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>JustLog.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>MapboxCoreNavigation.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>MapboxDirections.swift.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>MapboxMobileEvents.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>MapboxNavigation.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>OSRMTextInstructions.xcscheme</key>
+		<key>GoogleToolboxForMac.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -84,32 +29,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Polyline.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pulley.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SDWebImage.xcscheme</key>
+		<key>leveldb-library.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SQLite.swift.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Solar.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>SwiftyBeaver.xcscheme</key>
+		<key>nanopb.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -117,42 +47,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>029578DF7640CF5CDBEE45F165EF61BE</key>
+		<key>00103D6C821BE85971C563025527BA5D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>103C159A8E41B13CC7B3B8B027604542</key>
+		<key>1DCAA564DFD02AB61287C708F4CD6CFE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>108A248376345654A7A84838752A5344</key>
+		<key>266AE1506DAD13D34C0725E909C0C476</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1BE36E08E46DDD8C4078E50A07EC3BCE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>305508FE19A47C01FAC1748BC5C54297</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>377B97B85BCD821FA56B731ABF8A7418</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5B8BBDFADBB54480E94D6FFC64912494</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>65A97218F5297D9F24B22D7033CA9D1D</key>
+		<key>52A50AE216217F3B069B4B7C000C4C34</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -162,37 +72,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8E1FB13AD32E27125940420735C9F6DE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>93E5F8B901B108D85792A6170B9F7C42</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9AB8F92A068485D76E8D78EF7E410B94</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A0AF18341441A82BA7EF73726B3B220F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A372D205B2C36A8254A9ACC7FE926563</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>ABBF07C56D6CD9BD38547999C8F7DD1C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>AC0D2D2B4EE7C873431AB3502859CA60</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -202,27 +82,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BB23AD7ADFF1CDD4032308625689634B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C8061CB0C8EC90F438652A2E43E263A4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DBB3FAC071DBD5C50D802D9A59BAFB89</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DD1DBCC1DF68514CF23AA06E1AB43A68</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FD8914AB3972413A9DC55BD878849DE0</key>
+		<key>E4DD95323C54A78F879DAB0F1508B8E7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

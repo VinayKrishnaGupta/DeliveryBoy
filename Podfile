@@ -5,13 +5,15 @@ target 'Delivery Boy' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for Delivery Boy
-pod 'MapboxNavigation', '~> 0.7.0'
-  use_frameworks!
-pod 'HyperTrack'
+# Pods for Delivery Boy
+
 pod 'GoogleMaps'
 pod 'GooglePlaces'
 pod 'GooglePlacePicker'
+pod 'Pulley'
+pod 'Firebase/Database'
+pod 'Alamofire', '~> 4.4'
+
 
   target 'Delivery BoyTests' do
     inherit! :search_paths

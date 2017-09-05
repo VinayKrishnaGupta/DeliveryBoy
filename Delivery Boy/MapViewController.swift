@@ -9,6 +9,8 @@
 import UIKit
 import GoogleMaps
 import CoreLocation
+import Firebase
+
 
 
 class MapViewController: UIViewController, CLLocationManagerDelegate {
@@ -24,11 +26,16 @@ var mapView = GMSMapView()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-        mapView = GMSMapView.map(withFrame: CGRect(x: 0, y: 0, width: 350, height: 450), camera: GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!, zoom: 13))
+        mapView = GMSMapView.map(withFrame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height), camera: GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!, zoom: 13))
         mapView.isMyLocationEnabled = true
         mapView.settings.compassButton = true
         mapView.settings.setAllGesturesEnabled(true)
         mapView.settings.compassButton = true
+        mapView.isTrafficEnabled = true
+        mapView.backgroundColor = UIColor.lightGray
+        mapView.tintColor = UIColor.blue
+        mapView.mapType = .hybrid
+        
         let mapInsets = UIEdgeInsets(top: 80.0, left: 0.0, bottom: 0.0, right: 0.0)
         mapView.padding = mapInsets
         
@@ -52,6 +59,7 @@ var mapView = GMSMapView()
         DestinationMarker.snippet = "Delivery Location"
         DestinationMarker.title = "Huda Metro Station"
         DestinationMarker.map = mapView
+        DestinationMarker.tracksViewChanges = true
      //   DestinationMarker.icon = #imageLiteral(resourceName: "destinationMarker")
         
         let bounds = GMSCoordinateBounds()
@@ -69,9 +77,25 @@ var mapView = GMSMapView()
         
     
         
+    
         // Do any additional setup after loading the view.
     }
  
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        var ref: DatabaseReference!
+        
+        ref = Database.database().reference()
+        let profiledict : NSDictionary = ["name":"vinaygupta",
+                                   "status":"assigned",
+                                   "latitude":"3232323",
+                                   "logitude":"11111"]
+        ref.child("location").child("users").child("111").setValue(profiledict)
+        
+      //  self.ref.child("users").child(user.uid).setValue(["username": username])
+        
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -127,9 +151,9 @@ var mapView = GMSMapView()
     func showPath(polyStr :String){
         let path = GMSPath(fromEncodedPath: polyStr)
         let polyline = GMSPolyline(path: path)
-        polyline.strokeWidth = 5.0
+        polyline.strokeWidth = 8
         polyline.map = mapView // Your map view
-        polyline.strokeColor = UIColor.darkGray
+        polyline.strokeColor = UIColor.blue
         
             }
     

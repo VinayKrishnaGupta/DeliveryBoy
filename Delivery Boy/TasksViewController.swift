@@ -39,7 +39,7 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        self.performSegue(withIdentifier: "MapVC1", sender: self)
+      print("Did select row clicked")
         
         
     }

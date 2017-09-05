@@ -7,9 +7,10 @@
 //
 
 import UIKit
-import HyperTrack
+
 import GoogleMaps
 import GooglePlaces
+import Firebase
 
 
 
@@ -25,12 +26,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSServices.provideAPIKey("AIzaSyBQHA9_DicyK4M2fmpWHcGlDPLw8CJd3MA")
         GMSPlacesClient.provideAPIKey("AIzaSyBQHA9_DicyK4M2fmpWHcGlDPLw8CJd3MA")
         
+        FirebaseApp.configure()
         // Initialize HyperTrack SDK with your Publishable Key here
         // Refer to documentation at
         // https://docs.hypertrack.com/gettingstarted/authentication.html
         // @NOTE: Add **"pk_76fd93d70e525d4f01fd9200af4d13e4cc2b28a3"** here for SDK to be
         // authenticated with HyperTrack Server
-        HyperTrack.initialize("pk_76fd93d70e525d4f01fd9200af4d13e4cc2b28a3")
         
         // Request For Location Always Usage authorization before proceeding
         // further with identifying user.
@@ -38,8 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // and add permission strings for "Privacy - Location Always
         // Usage Description" and "Privacy - Motion Usage Description"
         // Refer to https://docs.hypertrack.com/sdks/ios/setup.html for more info.
-        HyperTrack.requestAlwaysAuthorization()
-        HyperTrack.requestMotionAuthorization()
+
 
 
         

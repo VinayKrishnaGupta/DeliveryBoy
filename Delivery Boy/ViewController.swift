@@ -1,6 +1,7 @@
 
 import UIKit
-import HyperTrack
+import Pulley
+
 
 class ViewController: UIViewController {
     
@@ -8,12 +9,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var phoneNumberField: UITextField!
     
     override func viewDidAppear(_ animated: Bool) {
-        // Check if user is logged in already
-//        if (HyperTrack.isTracking) {
-//            // Start User Session by starting LogoutViewController
-//            let vc = self.storyboard?.instantiateViewController(withIdentifier: "action")
-//            self.present(vc!, animated: true, completion: nil)
-//        }
+      
     }
     
     override func viewDidLoad() {
@@ -36,31 +32,8 @@ class ViewController: UIViewController {
      */
     @IBAction func didTapUserLoginButton(_ sender: UIButton) {
         // Get User details, if specified
-        let userName = userNameField.text ?? ""
-        let phoneNumber = phoneNumberField.text
-        let lookupID = phoneNumber
-        
-        /**
-         * Get or Create a User for given lookupId on HyperTrack Server here to
-         * login your user & configure HyperTrack SDK with this generated
-         * HyperTrack UserId.
-         * OR
-         * Implement your API call for User Login and get back a HyperTrack
-         * UserId from your API Server to be configured in the HyperTrack SDK.
-         */
-        HyperTrack.getOrCreateUser(userName, _phone: phoneNumber!, lookupID!) { (user, error) in
-            if (error != nil) {
-                // Handle getOrCreateUser API error here
-                self.showAlert("Error", message: (error?.type.rawValue)!)
-                return
-            }
-            
-            if (user != nil) {
-                // Handle getOrCreateUser API success here
-                self.onLoginSuccess()
-            }
-        }
-    }
+        self.onLoginSuccess()
+}
     
     /**
      * Call this method when user has successfully logged in
@@ -68,23 +41,21 @@ class ViewController: UIViewController {
     func onLoginSuccess() {
         
         // Start tracking the user on successful login. This indicates the user
-        // is online.
-        HyperTrack.startTracking()
+        let mainContentVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapVC")
         
-        // Start user session by navigating to LogOutViewController
+        let drawerContentVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TaskListVC")
         
-        self.performSegue(withIdentifier: "MyTasks", sender: self)
+        let pulleyController = PulleyViewController(contentViewController: mainContentVC, drawerViewController: drawerContentVC)
+        
+        
+        self.present(pulleyController, animated: true, completion: nil)
+        
+        
+        
+      //  self.performSegue(withIdentifier: "MapVC", sender: self)
         
 //        let vc = self.storyboard?.instantiateViewController(withIdentifier: "action")
 //        self.present(vc!, animated: true, completion: nil)
     }
     
-    func showAlert(_ title: String = "Alert", message: String) {
-        // create the alert
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        // add an action (button)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        // show the alert
-        self.present(alert, animated: true, completion: nil)
-    }
-}
+   }
