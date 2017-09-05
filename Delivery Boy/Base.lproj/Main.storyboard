@@ -44,7 +44,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CRZ-Rb-sxH">
                                 <rect key="frame" x="16" y="345" width="343" height="37"/>
@@ -61,7 +61,8 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <outlet property="userNameField" destination="xZ6-jV-d6i" id="V9H-9C-P3X"/>
+                        <outlet property="countryCodeField" destination="6Vs-Wa-AAA" id="EYG-4g-kvI"/>
+                        <outlet property="phoneNumberField" destination="xZ6-jV-d6i" id="9kY-nr-zRK"/>
                         <segue destination="wwq-GM-J2M" kind="show" identifier="MyTasks" id="Kij-Eu-YOl"/>
                         <segue destination="20r-TT-rSz" kind="show" identifier="MapVC" id="qpD-XP-2he"/>
                     </connections>
@@ -253,7 +254,7 @@
             <objects>
                 <navigationController storyboardIdentifier="action" automaticallyAdjustsScrollViewInsets="NO" id="BTv-NS-n7S" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DIe-uA-1Df">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="DIe-uA-1Df">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -271,7 +272,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wwq-GM-J2M" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gPN-qa-tj6">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gPN-qa-tj6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

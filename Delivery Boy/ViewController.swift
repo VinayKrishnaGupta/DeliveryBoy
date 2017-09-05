@@ -1,11 +1,13 @@
 
 import UIKit
 import Pulley
+import Alamofire
 
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var userNameField: UITextField!
+
+    @IBOutlet weak var countryCodeField: UITextField!
     @IBOutlet weak var phoneNumberField: UITextField!
     
     override func viewDidAppear(_ animated: Bool) {
@@ -32,6 +34,12 @@ class ViewController: UIViewController {
      */
     @IBAction func didTapUserLoginButton(_ sender: UIButton) {
         // Get User details, if specified
+        
+        
+        
+        
+        
+        
         self.onLoginSuccess()
 }
     
