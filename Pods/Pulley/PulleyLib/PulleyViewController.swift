@@ -91,8 +91,8 @@ public enum PulleyPosition: Int {
     }
 }
 
-private let kPulleyDefaultCollapsedHeight: CGFloat = 68.0
-private let kPulleyDefaultPartialRevealHeight: CGFloat = 264.0
+private let kPulleyDefaultCollapsedHeight: CGFloat = 70.0
+private let kPulleyDefaultPartialRevealHeight: CGFloat = 164.0
 
 open class PulleyViewController: UIViewController {
     

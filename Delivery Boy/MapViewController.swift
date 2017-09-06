@@ -83,14 +83,22 @@ var mapView = GMSMapView()
  
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        var ref: DatabaseReference!
         
+        let Driverprofile : NSDictionary  = UserDefaults.standard.value(forKey: "driverlogin") as! NSDictionary
+        let DriverMobilenumber : String = Driverprofile.value(forKey: "driver_contact") as! String
+        print(Driverprofile)
+        
+        
+        
+        
+        var ref: DatabaseReference!
         ref = Database.database().reference()
         let profiledict : NSDictionary = ["name":"vinaygupta",
                                    "status":"assigned",
-                                   "latitude":"3232323",
-                                   "logitude":"11111"]
-        ref.child("location").child("users").child("111").setValue(profiledict)
+                                   "latitude":locationManager.location?.coordinate.latitude as Any,
+                                   "logitude":locationManager.location?.coordinate.longitude as Any]
+        ref.child("location").child("users").child(DriverMobilenumber).setValue(profiledict)
+        
         
       //  self.ref.child("users").child(user.uid).setValue(["username": username])
         
@@ -146,6 +154,28 @@ var mapView = GMSMapView()
             }
         })
         task.resume()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let Driverprofile : NSDictionary  = UserDefaults.standard.value(forKey: "driverlogin") as! NSDictionary
+        let DriverMobilenumber : String = Driverprofile.value(forKey: "driver_contact") as! String
+        let DriverName: String = Driverprofile.value(forKey: "driver_name") as! String
+        print(Driverprofile)
+        
+        
+        
+        
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        let profiledict : NSDictionary = ["name":DriverName,
+                                          "status":"assigned",
+                                          "latitude":locationManager.location?.coordinate.latitude as Any,
+                                          "logitude":locationManager.location?.coordinate.longitude as Any]
+        ref.child("location").child("users").child(DriverMobilenumber).setValue(profiledict)
+
+        
+        
+        
     }
     
     func showPath(polyStr :String){
