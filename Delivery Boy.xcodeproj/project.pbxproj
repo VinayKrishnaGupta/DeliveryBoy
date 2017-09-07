@@ -21,6 +21,9 @@
 		2FECDD8F1F5EB25A0070D689 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2FECDD8E1F5EB25A0070D689 /* GoogleService-Info.plist */; };
 		2FECDD911F5FBEC00070D689 /* ConfigurationFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FECDD901F5FBEC00070D689 /* ConfigurationFile.swift */; };
 		2FECDD931F5FCD4C0070D689 /* OTPverifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FECDD921F5FCD4C0070D689 /* OTPverifyViewController.swift */; };
+		2FECDD951F6109400070D689 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FECDD941F6109400070D689 /* TaskDetailViewController.swift */; };
+		2FECDD971F6115140070D689 /* TripMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FECDD961F6115140070D689 /* TripMapViewController.swift */; };
+		2FECDD9A1F61AF530070D689 /* mapstyle.json in Resources */ = {isa = PBXBuildFile; fileRef = 2FECDD991F61AF530070D689 /* mapstyle.json */; };
 		859586DE93CB3F5C8EE5A905 /* Pods_Delivery_BoyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48C4719E131557F4E89EFC89 /* Pods_Delivery_BoyUITests.framework */; };
 		8CF397D07BC722D38D05FE96 /* Pods_Delivery_BoyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D342E765495E6F90231F2A1E /* Pods_Delivery_BoyTests.framework */; };
 		92D97643AF75CE5431C0EDED /* Pods_Delivery_Boy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 136FBB4E13DE598231BB17F1 /* Pods_Delivery_Boy.framework */; };
@@ -67,6 +70,10 @@
 		2FECDD8E1F5EB25A0070D689 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2FECDD901F5FBEC00070D689 /* ConfigurationFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationFile.swift; sourceTree = "<group>"; };
 		2FECDD921F5FCD4C0070D689 /* OTPverifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPverifyViewController.swift; sourceTree = "<group>"; };
+		2FECDD941F6109400070D689 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
+		2FECDD961F6115140070D689 /* TripMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripMapViewController.swift; sourceTree = "<group>"; };
+		2FECDD981F6153F20070D689 /* DubaiGPX.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = DubaiGPX.gpx; sourceTree = "<group>"; };
+		2FECDD991F61AF530070D689 /* mapstyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapstyle.json; sourceTree = "<group>"; };
 		48C4719E131557F4E89EFC89 /* Pods_Delivery_BoyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Delivery_BoyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ECB7FB4D85AE8226FC159C2 /* Pods-Delivery BoyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Delivery BoyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Delivery BoyUITests/Pods-Delivery BoyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6EDA89642A8D91253D14F668 /* Pods-Delivery Boy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Delivery Boy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Delivery Boy/Pods-Delivery Boy.debug.xcconfig"; sourceTree = "<group>"; };
@@ -134,10 +141,14 @@
 				2FECDD901F5FBEC00070D689 /* ConfigurationFile.swift */,
 				2FC7C4CE1F581767002AB65B /* ViewController.swift */,
 				2FECDD921F5FCD4C0070D689 /* OTPverifyViewController.swift */,
+				2FC7C4FC1F58378A002AB65B /* MapViewController.swift */,
+				2FECDD991F61AF530070D689 /* mapstyle.json */,
 				2FC7C4D01F581767002AB65B /* Main.storyboard */,
 				2FECDD8A1F5D35160070D689 /* TasksViewController.swift */,
-				2FC7C4FC1F58378A002AB65B /* MapViewController.swift */,
+				2FECDD941F6109400070D689 /* TaskDetailViewController.swift */,
+				2FECDD961F6115140070D689 /* TripMapViewController.swift */,
 				2FC7C4FA1F58241E002AB65B /* LogoutController.swift */,
+				2FECDD981F6153F20070D689 /* DubaiGPX.gpx */,
 				2FC7C4D31F581767002AB65B /* Assets.xcassets */,
 				2FC7C4D51F581767002AB65B /* LaunchScreen.storyboard */,
 				2FC7C4D81F581767002AB65B /* Info.plist */,
@@ -316,6 +327,7 @@
 				2FC7C4D71F581767002AB65B /* LaunchScreen.storyboard in Resources */,
 				2FECDD8F1F5EB25A0070D689 /* GoogleService-Info.plist in Resources */,
 				2FC7C4D41F581767002AB65B /* Assets.xcassets in Resources */,
+				2FECDD9A1F61AF530070D689 /* mapstyle.json in Resources */,
 				2FC7C4D21F581767002AB65B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -504,12 +516,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FECDD971F6115140070D689 /* TripMapViewController.swift in Sources */,
 				2FECDD931F5FCD4C0070D689 /* OTPverifyViewController.swift in Sources */,
 				2FECDD911F5FBEC00070D689 /* ConfigurationFile.swift in Sources */,
 				2FC7C4FB1F58241E002AB65B /* LogoutController.swift in Sources */,
 				2FC7C4CF1F581767002AB65B /* ViewController.swift in Sources */,
 				2FECDD8B1F5D35160070D689 /* TasksViewController.swift in Sources */,
 				2FC7C4CD1F581767002AB65B /* AppDelegate.swift in Sources */,
+				2FECDD951F6109400070D689 /* TaskDetailViewController.swift in Sources */,
 				2FC7C4FD1F58378A002AB65B /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
