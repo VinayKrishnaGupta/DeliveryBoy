@@ -24,19 +24,27 @@ var mapView = GMSMapView()
         super.viewDidLoad()
         
               
+        var currentLatitude = Double()
+        var currentLongitude = Double()
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
-        
+        if self.locationManager.location != nil {
+            currentLatitude =  (locationManager.location?.coordinate.latitude)!
+            
+            currentLongitude =  (locationManager.location?.coordinate.longitude)!
+        }
+        else {
+            locationManager.requestWhenInUseAuthorization()
+            locationManager.startUpdatingLocation()
+        }
        
-        let currentLatitude: Double =  (locationManager.location?.coordinate.latitude)!
         
-        let currentLongitude : Double =  (locationManager.location?.coordinate.longitude)!
        
         mapView = GMSMapView.map(withFrame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height), camera: GMSCameraPosition.camera(withLatitude: currentLatitude, longitude: currentLongitude, zoom: 12))
-        print("Direction is \(String(describing: locationManager.location?.speed)) \(String(describing: locationManager.location?.course))")
+       
        
       
         
@@ -106,12 +114,12 @@ var mapView = GMSMapView()
         
         
         let button = UIButton.init(type: .custom)
-        button.setTitle("Log out", for: .normal)
+        button.setTitle("Off Duty", for: .normal)
         button.titleLabel?.font = UIFont(name: "Helvetica", size: 15)
         button.layer.cornerRadius = 40
-        button.backgroundColor = UIColor(red:0.08, green:0.65, blue:1, alpha:0.7)
+        button.backgroundColor = UIColor(red:11/255, green:106/255, blue:255/255, alpha:0.6)
         button.setTitleColor(UIColor.white, for: .normal)
-        button.frame = CGRect(x: self.view.frame.width-100, y: 20, width: 80, height: 80)
+        button.frame = CGRect(x: 20, y: 20, width: 80, height: 80)
         button.addTarget(self, action: #selector(customTopButton), for: .touchUpInside)
         button.isOpaque = true
     
@@ -121,15 +129,26 @@ var mapView = GMSMapView()
         button2.setTitle("Profile", for: .normal)
         button2.titleLabel?.font = UIFont(name: "Helvetica", size: 15)
         button2.layer.cornerRadius = 40
-        button2.backgroundColor = UIColor(red:0.08, green:0.65, blue:1, alpha:0.7)
+        button2.backgroundColor = UIColor(red:11/255, green:106/255, blue:255/255, alpha:0.6)
         button2.setTitleColor(UIColor.white, for: .normal)
-        button2.frame = CGRect(x: 20, y: 20, width: 80, height: 80)
+        button2.frame = CGRect(x: 20, y: 120, width: 80, height: 80)
         button2.addTarget(self, action: #selector(customTopButton), for: .touchUpInside)
         button2.isOpaque = true
         
         self.view.addSubview(button2)
     
+        let button3 = UIButton.init(type: .custom)
+        button3.setTitle("My Trips", for: .normal)
+        button3.titleLabel?.numberOfLines = 2
+        button3.titleLabel?.font = UIFont(name: "Helvetica", size: 15)
+        button3.layer.cornerRadius = 40
+        button3.backgroundColor = UIColor(red:11/255, green:106/255, blue:255/255, alpha:0.6)
+        button3.setTitleColor(UIColor.white, for: .normal)
+        button3.frame = CGRect(x: 20, y: 220, width: 80, height: 80)
+        button3.addTarget(self, action: #selector(customTopButton), for: .touchUpInside)
+        button3.isOpaque = true
         
+        self.view.addSubview(button3)
     
         // Do any additional setup after loading the view.
     }
@@ -211,7 +230,9 @@ var mapView = GMSMapView()
                     }
                     else {
                         
-                        let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.alert)
+                        
+                        
+                        let alert = UIAlertController(title: "No Upcoming task", message: "Currently, No Task is assigned to you, Please comeback later", preferredStyle: UIAlertControllerStyle.alert)
                         
                         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                         

@@ -13,7 +13,7 @@ pod 'GooglePlacePicker'
 pod 'Pulley'
 pod 'Firebase/Database'
 pod 'Alamofire', '~> 4.4'
-
+pod 'OpenInGoogleMaps'
 
   target 'Delivery BoyTests' do
     inherit! :search_paths

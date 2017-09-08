@@ -16,7 +16,7 @@ import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    var locationManager = CLLocationManager()
     var window: UIWindow?
 
 
@@ -25,6 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GMSServices.provideAPIKey("AIzaSyBQHA9_DicyK4M2fmpWHcGlDPLw8CJd3MA")
         GMSPlacesClient.provideAPIKey("AIzaSyBQHA9_DicyK4M2fmpWHcGlDPLw8CJd3MA")
+        
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        
         
         FirebaseApp.configure()
         // Initialize HyperTrack SDK with your Publishable Key here

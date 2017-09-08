@@ -126,8 +126,8 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
     func makeAttributedString(title: String, subtitle: String) -> NSAttributedString {
         let style = NSMutableParagraphStyle()
         style.alignment = NSTextAlignment.justified
-        let titleAttributes = [NSFontAttributeName: UIFont.preferredFont(forTextStyle: .headline), NSForegroundColorAttributeName: UIColor.darkGray]
-        let subtitleAttributes = [NSFontAttributeName: UIFont.preferredFont(forTextStyle: .subheadline),NSForegroundColorAttributeName:UIColor.black, NSParagraphStyleAttributeName:style]
+        let titleAttributes = [NSFontAttributeName: UIFont.preferredFont(forTextStyle: .headline), NSForegroundColorAttributeName: UIColor.white]
+        let subtitleAttributes = [NSFontAttributeName: UIFont.preferredFont(forTextStyle: .subheadline),NSForegroundColorAttributeName:UIColor.white, NSParagraphStyleAttributeName:style]
         
         let titleString = NSMutableAttributedString(string: "\(title)\n", attributes: titleAttributes)
         let subtitleString = NSAttributedString(string: subtitle, attributes: subtitleAttributes)

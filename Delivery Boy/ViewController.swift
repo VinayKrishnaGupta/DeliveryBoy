@@ -70,7 +70,7 @@ class ViewController: UIViewController {
             
         ]
         
-        Alamofire.request( URL(string: Trucky.baseURL + "/driver_login")!, method: .post, parameters: parameters2, headers: HEADERS )
+        Alamofire.request( URL(string: Trucky.baseURL + "/driver/login")!, method: .post, parameters: parameters2, headers: HEADERS )
             
             
             .responseJSON { response in

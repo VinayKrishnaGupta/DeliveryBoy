@@ -9,6 +9,7 @@
 import UIKit
 import GoogleMaps
 import CoreLocation
+import Alamofire
 
 class TripMapViewController: UIViewController, CLLocationManagerDelegate {
     
@@ -139,11 +140,58 @@ class TripMapViewController: UIViewController, CLLocationManagerDelegate {
     func CompleteTrip(){
         
         
+        
+        let Driverprofile : NSDictionary  = UserDefaults.standard.value(forKey: "driverlogin") as! NSDictionary
+        let DriverID : String   = Driverprofile.value(forKey: "driver_id") as! String
+        let intDriverID : Int = Int(DriverID)!
+        let StatusID : Int = 3
+        let taskIDString: String = OngoingTask.value(forKey: "task_id") as! String
+        let taskID : Int = Int(taskIDString)!
+        let parameters2 = ["driver_id": intDriverID , "status": StatusID, "task_id":taskID]
+        let HEADERS: HTTPHeaders = [
+            "token": "d75542712c868c1690110db641ba01a",
+            "Accept": "application/json",
+            "Content-Type":"application/x-www-form-urlencoded",
+            
+            ]
+        print(parameters2)
+        Alamofire.request( URL(string: Trucky.baseURL + "/task/change_assigned_task_status")!, method: .post, parameters: parameters2, headers: HEADERS )
+            
+            
+            .responseJSON { response in
+                debugPrint(response)
+                
+                
+                if let json = response.result.value {
+                    
+                  
+                    
+                }
+                else {
+                    
+                    let alert = UIAlertController(title: "Error", message: "", preferredStyle: UIAlertControllerStyle.alert)
+                    
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    
+                    self.present(alert, animated: true, completion: nil)
+                    
+                    
+                }
+                
+                
+                
+                
+                
+        }
+        
+        
+        
     }
     
     func NavigateButton(){
         
-        
+        let testURL = URL(string: "comgooglemaps-x-callback://?saddr=&daddr=\(destinationlocation.latitude),\(destinationlocation.longitude)&directionsmode=driving")!
+        UIApplication.shared.openURL(testURL)
     }
     
     

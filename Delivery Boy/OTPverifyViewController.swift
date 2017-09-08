@@ -36,7 +36,7 @@ class OTPverifyViewController: UIViewController {
             
             ]
         
-        Alamofire.request( URL(string: Trucky.baseURL + "/driver_login/check_otp")!, method: .post, parameters: parameters2, headers: HEADERS )
+        Alamofire.request( URL(string: Trucky.baseURL + "/driver/check_otp")!, method: .post, parameters: parameters2, headers: HEADERS )
             
             
             .responseJSON { response in
