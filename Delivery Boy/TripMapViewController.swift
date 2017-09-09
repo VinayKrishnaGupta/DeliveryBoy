@@ -10,6 +10,7 @@ import UIKit
 import GoogleMaps
 import CoreLocation
 import Alamofire
+import OpenInGoogleMaps
 
 class TripMapViewController: UIViewController, CLLocationManagerDelegate {
     
@@ -26,7 +27,7 @@ class TripMapViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-        print("Ongoing Task is \(OngoingTask)")
+               print("Ongoing Task is \(OngoingTask)")
         let destinationStringLat : String = OngoingTask.value(forKey: "task_dropoff_latitude") as! String
         let destinationLatitude: Double =  Double(destinationStringLat)!
         let destinationStringLong : String = OngoingTask.value(forKey: "task_dropoff_longitude") as! String
@@ -106,11 +107,12 @@ class TripMapViewController: UIViewController, CLLocationManagerDelegate {
         let button2 = UIButton.init(type: .custom)
         button2.setTitle("Complete Trip", for: .normal)
         button2.titleLabel?.numberOfLines = 2
+        button2.titleLabel?.textAlignment = .center
         button2.titleLabel?.font = UIFont(name: "Helvetica", size: 17)
         button2.layer.cornerRadius = 50
         button2.backgroundColor = UIColor(red:0.08, green:0.65, blue:1, alpha:0.7)
         button2.setTitleColor(UIColor.white, for: .normal)
-        button2.frame = CGRect(x: 120, y: self.view.frame.height-100, width: 100, height: 100)
+        button2.frame = CGRect(x: (self.view.frame.width/2)-50, y: self.view.frame.height-105, width: 100, height: 100)
         button2.addTarget(self, action: #selector(CompleteTrip), for: .touchUpInside)
         button2.isOpaque = true
         
@@ -190,8 +192,31 @@ class TripMapViewController: UIViewController, CLLocationManagerDelegate {
     
     func NavigateButton(){
         
-        let testURL = URL(string: "comgooglemaps-x-callback://?saddr=&daddr=\(destinationlocation.latitude),\(destinationlocation.longitude)&directionsmode=driving")!
-        UIApplication.shared.openURL(testURL)
+       // let testURL = URL(string: "comgooglemaps-x-callback://?saddr=&daddr=\(destinationlocation.latitude),\(destinationlocation.longitude)&directionsmode=driving")!
+//          UIApplication.shared.openURL(testURL)
+        
+        let testURL = URL(string: "comgooglemaps-x-truckydriverapp://?saddr=&daddr=\(destinationlocation.latitude),\(destinationlocation.longitude)&directionsmode=driving")!
+        
+        
+     //   let testURL = URL(string: "truckydriverapp://?saddr=&daddr=\(destinationlocation.latitude),\(destinationlocation.longitude)&directionsmode=driving")!
+        let mycallbackURL = URL(string: "truckydriverapp://")
+        OpenInGoogleMapsController.sharedInstance().callbackURL = mycallbackURL
+        var place: CLLocationCoordinate2D
+        
+        var definition = GoogleDirectionsDefinition()
+        definition.destinationPoint = GoogleDirectionsWaypoint(location: destinationlocation)
+        definition.travelMode = GoogleMapsTravelMode.driving
+//        var streetViewDefinitions = GoogleStreetViewDefinition()
+//        let streetviewcoordinates = CLLocationCoordinate2D.init(latitude: 25.1972018, longitude: 55.2721877)
+//        streetViewDefinitions.center = streetviewcoordinates
+        
+     
+        
+        OpenInGoogleMapsController.sharedInstance().openDirections(definition)
+        OpenInGoogleMapsController.sharedInstance().callbackURL = mycallbackURL
+        
+        
+      
     }
     
     
@@ -199,7 +224,7 @@ class TripMapViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidAppear(_ animated: Bool) {
     
         
-        
+        mapView.camera = GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!, zoom: 15)
         
         
     }
@@ -251,7 +276,7 @@ class TripMapViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        mapView.camera = GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!, zoom: 17)
+     //   mapView.camera = GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!, zoom: 17)
         
         
         
@@ -261,6 +286,7 @@ class TripMapViewController: UIViewController, CLLocationManagerDelegate {
         
         
     }
+    
     
     func showPath(polyStr :String){
         let path = GMSPath(fromEncodedPath: polyStr)

@@ -147,12 +147,12 @@
                     <navigationItem key="navigationItem" id="60t-80-Bki"/>
                     <connections>
                         <outlet property="TableView" destination="DSi-Ud-jgu" id="YfO-tl-c0I"/>
-                        <segue destination="IAJ-pO-Zoy" kind="show" identifier="TaskDetail" id="1Gy-uW-kIO"/>
+                        <segue destination="wwq-GM-J2M" kind="show" identifier="TaskDetail" id="YYG-Ii-eqn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q0P-4i-f1x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2350" y="1009"/>
+            <point key="canvasLocation" x="1210" y="1155"/>
         </scene>
         <!--Task Detail View Controller-->
         <scene sceneID="t9S-qk-XRw">
@@ -298,6 +298,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ay5-K3-C1H"/>
                     <connections>
                         <outlet property="AdditionalInfoText" destination="Otp-C2-RvI" id="w91-Dw-r5l"/>
                         <outlet property="DeliveryAddressText" destination="RNY-ct-Cf6" id="xZS-Es-eH2"/>
@@ -312,7 +313,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pLo-DS-7Ai" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3317.5999999999999" y="971.96401799100454"/>
+            <point key="canvasLocation" x="3401" y="717"/>
         </scene>
         <!--Trip Map View Controller-->
         <scene sceneID="SqS-eI-fhY">
@@ -500,7 +501,7 @@
             <objects>
                 <navigationController storyboardIdentifier="action" automaticallyAdjustsScrollViewInsets="NO" id="BTv-NS-n7S" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DIe-uA-1Df">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="DIe-uA-1Df">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -518,7 +519,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wwq-GM-J2M" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gPN-qa-tj6">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gPN-qa-tj6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -528,10 +529,13 @@
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="IAJ-pO-Zoy" kind="relationship" relationship="rootViewController" id="vAP-IC-skt"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7iu-Se-Xwk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1281" y="1009"/>
+            <point key="canvasLocation" x="2534" y="489"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hzY-Ud-8z8">
@@ -562,5 +566,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="qpD-XP-2he"/>
+        <segue reference="YYG-Ii-eqn"/>
     </inferredMetricsTieBreakers>
 </document>

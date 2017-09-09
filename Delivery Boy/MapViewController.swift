@@ -18,6 +18,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
 var locationManager = CLLocationManager()
 var mapView = GMSMapView()
      var marker = GMSMarker()
+    let button = UIButton.init(type: .custom)
+    let button2 = UIButton.init(type: .custom)
  var destinationlocation : CLLocationCoordinate2D = CLLocationCoordinate2D()
 
     override func viewDidLoad() {
@@ -30,6 +32,8 @@ var mapView = GMSMapView()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        locationManager.allowDeferredLocationUpdates(untilTraveled: 5, timeout: 3)
+        locationManager.allowsBackgroundLocationUpdates = true
         
         if self.locationManager.location != nil {
             currentLatitude =  (locationManager.location?.coordinate.latitude)!
@@ -113,26 +117,28 @@ var mapView = GMSMapView()
        // let destination = "\("28.4542691"),\("77.0459559")"
         
         
-        let button = UIButton.init(type: .custom)
-        button.setTitle("Off Duty", for: .normal)
+       // let button = UIButton.init(type: .custom)
+        button.setTitle("Go Off Duty", for: .normal)
         button.titleLabel?.font = UIFont(name: "Helvetica", size: 15)
         button.layer.cornerRadius = 40
+        button.titleLabel?.numberOfLines = 2
+        button.titleLabel?.textAlignment = .center
         button.backgroundColor = UIColor(red:11/255, green:106/255, blue:255/255, alpha:0.6)
         button.setTitleColor(UIColor.white, for: .normal)
         button.frame = CGRect(x: 20, y: 20, width: 80, height: 80)
-        button.addTarget(self, action: #selector(customTopButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(ondutyoffDuty), for: .touchUpInside)
         button.isOpaque = true
     
         self.view.addSubview(button)
         
-        let button2 = UIButton.init(type: .custom)
+       // let button2 = UIButton.init(type: .custom)
         button2.setTitle("Profile", for: .normal)
         button2.titleLabel?.font = UIFont(name: "Helvetica", size: 15)
         button2.layer.cornerRadius = 40
         button2.backgroundColor = UIColor(red:11/255, green:106/255, blue:255/255, alpha:0.6)
         button2.setTitleColor(UIColor.white, for: .normal)
         button2.frame = CGRect(x: 20, y: 120, width: 80, height: 80)
-        button2.addTarget(self, action: #selector(customTopButton), for: .touchUpInside)
+        button2.addTarget(self, action: #selector(ProfileViewofDriver), for: .touchUpInside)
         button2.isOpaque = true
         
         self.view.addSubview(button2)
@@ -145,15 +151,114 @@ var mapView = GMSMapView()
         button3.backgroundColor = UIColor(red:11/255, green:106/255, blue:255/255, alpha:0.6)
         button3.setTitleColor(UIColor.white, for: .normal)
         button3.frame = CGRect(x: 20, y: 220, width: 80, height: 80)
-        button3.addTarget(self, action: #selector(customTopButton), for: .touchUpInside)
+        button3.addTarget(self, action: #selector(MyCompletedtrips), for: .touchUpInside)
         button3.isOpaque = true
         
         self.view.addSubview(button3)
     
         // Do any additional setup after loading the view.
     }
-    func customTopButton() {
+    func ProfileViewofDriver() {
         print("Top Button clicked")
+    }
+    
+    func ondutyoffDuty() {
+        
+        let Driverprofile : NSDictionary  = UserDefaults.standard.value(forKey: "driverlogin") as! NSDictionary
+        
+        let DriverID : String   = Driverprofile.value(forKey: "driver_id") as! String
+        let intDriverID : Int = Int(DriverID)!
+        var StatusID = Int()
+        let DriverDutyStatus : String = Driverprofile.value(forKey: "driver_duty_status") as! String
+        let DriverdutyS = Int(DriverDutyStatus)
+        if DriverdutyS == 1 {
+            StatusID = 1
+        }
+        else {
+            StatusID = 0
+        }
+        
+        
+        let parameters2 = ["driver_id": intDriverID , "status": StatusID]
+        let HEADERS: HTTPHeaders = [
+            "token": "d75542712c868c1690110db641ba01a",
+            "Accept": "application/json",
+            "Content-Type":"application/x-www-form-urlencoded",
+            ]
+        
+        
+        print(parameters2)
+        Alamofire.request( URL(string: Trucky.baseURL + "/driver/change_duty")!, method: .post, parameters: parameters2, headers: HEADERS )
+            
+            
+            .responseJSON { response in
+                debugPrint(response)
+                
+                
+                if let json = response.result.value {
+                    
+                    let dict: NSDictionary = json as! NSDictionary
+                    let message: String = dict.value(forKeyPath: "Response.data.message") as! String
+                    let type: String = dict.value(forKeyPath: "Response.data.type") as! String
+                    
+                    
+                    
+                    if type == "success" {
+                        if self.button.titleLabel?.text == "Go On Duty" {
+                            self.button.setTitle("Go Off Duty", for: UIControlState.normal)
+                            self.mapView.isHidden = false
+                            self.button.backgroundColor = UIColor(red:11/255, green:106/255, blue:255/255, alpha:0.6)
+                        }
+                        else {
+                            self.button.setTitle("Go On Duty", for: UIControlState.normal)
+                            self.button.backgroundColor = UIColor.black
+                            self.mapView.isHidden = true
+                            self.button.alpha = 0.7
+                        }
+                        
+                        
+                        
+                        
+                        }
+                    
+                    }
+                    else {
+                        
+                        
+                        
+                        let alert = UIAlertController(title: "Error", message:"You Duty status changing failed", preferredStyle: UIAlertControllerStyle.alert)
+                        
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                        
+                        self.present(alert, animated: true, completion: nil)
+                        
+                        
+                    }
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                }
+        
+        
+        
+
+        
+        
+        
+    }
+    func MyCompletedtrips() {
+        
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Location manager failed")
+        
+        
     }
     
     func viewMyprofile() {
@@ -219,7 +324,15 @@ var mapView = GMSMapView()
                             let destinationStringLong : String = OngoingTask.value(forKey: "task_dropoff_longitude") as! String
                             let destinationLongitude : Double =  Double(destinationStringLong)!
                             self.destinationlocation = CLLocationCoordinate2DMake(destinationLatitude, destinationLongitude)
-                            self.getPolylineRoute(from: (self.locationManager.location?.coordinate)!, to: self.destinationlocation)
+                            
+                            
+                            if self.locationManager.location != nil {
+                               self.getPolylineRoute(from: (self.locationManager.location?.coordinate)!, to: self.destinationlocation)
+                            }
+                            else {
+                              print("location not found ")
+                            }
+                            
                             
                         }
                         else {
