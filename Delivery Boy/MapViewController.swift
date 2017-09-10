@@ -11,6 +11,8 @@ import GoogleMaps
 import CoreLocation
 import Firebase
 import Alamofire
+import Pulley
+import SVProgressHUD
 
 
 
@@ -24,7 +26,8 @@ var mapView = GMSMapView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        SVProgressHUD.show(withStatus: "Geting your location...")
+        SVProgressHUD.dismiss(withDelay: 2)
               
         var currentLatitude = Double()
         var currentLongitude = Double()
@@ -135,13 +138,13 @@ var mapView = GMSMapView()
         self.view.addSubview(button)
         
        // let button2 = UIButton.init(type: .custom)
-        button2.setTitle("Profile", for: .normal)
+        button2.setTitle("Reload", for: .normal)
         button2.titleLabel?.font = UIFont(name: "Helvetica", size: 15)
         button2.layer.cornerRadius = 40
         button2.backgroundColor = UIColor(red:11/255, green:106/255, blue:255/255, alpha:0.6)
         button2.setTitleColor(UIColor.white, for: .normal)
         button2.frame = CGRect(x: 20, y: 120, width: 80, height: 80)
-        button2.addTarget(self, action: #selector(ProfileViewofDriver), for: .touchUpInside)
+        button2.addTarget(self, action: #selector(viewMyprofile), for: .touchUpInside)
         button2.isOpaque = true
         
         self.view.addSubview(button2)
@@ -237,7 +240,7 @@ var mapView = GMSMapView()
                         
                         
                         
-                        let alert = UIAlertController(title: "Error", message:"You Duty status changing failed", preferredStyle: UIAlertControllerStyle.alert)
+                        let alert = UIAlertController(title: "Failed", message:"You Duty status changing failed", preferredStyle: UIAlertControllerStyle.alert)
                         
                         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                         
@@ -274,6 +277,16 @@ var mapView = GMSMapView()
     
     func viewMyprofile() {
         print("Profile Button clicked")
+        let mainContentVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapVC")
+        
+        let drawerContentVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TaskListVC")
+        
+        let pulleyController = PulleyViewController(contentViewController: mainContentVC, drawerViewController: drawerContentVC)
+        pulleyController.initialDrawerPosition = .partiallyRevealed
+        
+        self.present(pulleyController, animated: true, completion: nil)
+        
+        
         
     }
     
@@ -440,7 +453,7 @@ var mapView = GMSMapView()
         let Driverprofile : NSDictionary  = UserDefaults.standard.value(forKey: "driverlogin") as! NSDictionary
         let DriverMobilenumber : String = Driverprofile.value(forKey: "driver_contact") as! String
         let DriverName: String = Driverprofile.value(forKey: "driver_name") as! String
-        print(Driverprofile)
+
         
         
         

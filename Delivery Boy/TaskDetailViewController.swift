@@ -77,7 +77,7 @@ class TaskDetailViewController: UIViewController {
                 }
                     else {
                         
-                        let alert = UIAlertController(title: "Error", message: "", preferredStyle: UIAlertControllerStyle.alert)
+                        let alert = UIAlertController(title: "Fetching your assigned task", message: "Please wait", preferredStyle: UIAlertControllerStyle.alert)
                         
                         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                         
