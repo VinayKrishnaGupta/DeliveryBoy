@@ -72,7 +72,6 @@
 		2FECDD921F5FCD4C0070D689 /* OTPverifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPverifyViewController.swift; sourceTree = "<group>"; };
 		2FECDD941F6109400070D689 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 		2FECDD961F6115140070D689 /* TripMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripMapViewController.swift; sourceTree = "<group>"; };
-		2FECDD981F6153F20070D689 /* DubaiGPX.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = DubaiGPX.gpx; sourceTree = "<group>"; };
 		2FECDD991F61AF530070D689 /* mapstyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapstyle.json; sourceTree = "<group>"; };
 		48C4719E131557F4E89EFC89 /* Pods_Delivery_BoyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Delivery_BoyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ECB7FB4D85AE8226FC159C2 /* Pods-Delivery BoyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Delivery BoyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Delivery BoyUITests/Pods-Delivery BoyUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -148,7 +147,6 @@
 				2FECDD941F6109400070D689 /* TaskDetailViewController.swift */,
 				2FECDD961F6115140070D689 /* TripMapViewController.swift */,
 				2FC7C4FA1F58241E002AB65B /* LogoutController.swift */,
-				2FECDD981F6153F20070D689 /* DubaiGPX.gpx */,
 				2FC7C4D31F581767002AB65B /* Assets.xcassets */,
 				2FC7C4D51F581767002AB65B /* LaunchScreen.storyboard */,
 				2FC7C4D81F581767002AB65B /* Info.plist */,
@@ -476,6 +474,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/OpenInGoogleMaps/OpenInGoogleMaps.framework",
 				"${BUILT_PRODUCTS_DIR}/Pulley/Pulley.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -485,6 +484,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenInGoogleMaps.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulley.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);

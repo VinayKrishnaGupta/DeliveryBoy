@@ -53,6 +53,7 @@ var mapView = GMSMapView()
       
         
         mapView.isMyLocationEnabled = true
+        mapView.settings.myLocationButton = true
         mapView.settings.compassButton = true
         mapView.settings.setAllGesturesEnabled(true)
         mapView.settings.compassButton = true
@@ -60,6 +61,8 @@ var mapView = GMSMapView()
         mapView.backgroundColor = UIColor.gray
         mapView.tintColor = UIColor.blue
         mapView.mapType = .normal
+        mapView.settings.compassButton = true
+        
        
         
         do {
@@ -162,6 +165,13 @@ var mapView = GMSMapView()
         print("Top Button clicked")
     }
     
+    
+    override func viewDidAppear(_ animated: Bool) {
+        mapView.padding = UIEdgeInsetsMake(0, 0, 250, 0)
+        
+        
+    }
+    
     func ondutyoffDuty() {
         
         let Driverprofile : NSDictionary  = UserDefaults.standard.value(forKey: "driverlogin") as! NSDictionary
@@ -171,15 +181,16 @@ var mapView = GMSMapView()
         var StatusID = Int()
         let DriverDutyStatus : String = Driverprofile.value(forKey: "driver_duty_status") as! String
         let DriverdutyS = Int(DriverDutyStatus)
-        if DriverdutyS == 1 {
-            StatusID = 1
+        if button.titleLabel?.text == "Go Off Duty" {
+        
+        StatusID = 0
         }
         else {
-            StatusID = 0
+            StatusID = 1
         }
         
         
-        let parameters2 = ["driver_id": intDriverID , "status": StatusID]
+        let parameters2 = ["driver_id": intDriverID , "duty_status": StatusID] as [String : Any]
         let HEADERS: HTTPHeaders = [
             "token": "d75542712c868c1690110db641ba01a",
             "Accept": "application/json",
@@ -277,13 +288,13 @@ var mapView = GMSMapView()
         
         
         
-        var ref: DatabaseReference!
-        ref = Database.database().reference()
-        let profiledict : NSDictionary = ["name":"vinaygupta",
-                                   "status":"assigned",
-                                   "latitude":locationManager.location?.coordinate.latitude as Any,
-                                   "logitude":locationManager.location?.coordinate.longitude as Any]
-        ref.child("location").child("users").child(DriverMobilenumber).setValue(profiledict)
+//        var ref: DatabaseReference!
+//        ref = Database.database().reference()
+//        let profiledict : NSDictionary = ["name":"vinaygupta",
+//                                   "status":"assigned",
+//                                   "latitude":locationManager.location?.coordinate.latitude as Any,
+//                                   "logitude":locationManager.location?.coordinate.longitude as Any]
+//        ref.child("location").child("users").child(DriverMobilenumber).setValue(profiledict)
         
         
         

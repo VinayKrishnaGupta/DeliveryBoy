@@ -153,8 +153,8 @@ class TasksViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         
         if segue.identifier == "TaskDetail" {
-            let navigation = segue.destination as? UINavigationController
-            if let nextViewController = navigation?.topViewController as? TaskDetailViewController{
+           // let navigation = segue.destination as? UINavigationController
+            if let nextViewController = segue.destination as? TaskDetailViewController{
               nextViewController.TaskDetail = self.SelectedTask
                 
                 

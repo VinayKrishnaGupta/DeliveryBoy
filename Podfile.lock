@@ -41,6 +41,7 @@ PODS:
   - nanopb/encode (0.3.8)
   - OpenInGoogleMaps (0.1.0)
   - Pulley (1.5.2)
+  - SVProgressHUD (2.1.2)
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
@@ -50,6 +51,7 @@ DEPENDENCIES:
   - GooglePlaces
   - OpenInGoogleMaps
   - Pulley
+  - SVProgressHUD
 
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
@@ -66,7 +68,8 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   OpenInGoogleMaps: 60dd887d2e2b2149166a03bd6dab1d4478a7d3e8
   Pulley: f5213e59f3bc8f0d74e933d98b9b2000a0fd4d18
+  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
 
-PODFILE CHECKSUM: 2d92aa30042e27803b08fd5394c81bcc9532555f
+PODFILE CHECKSUM: 63e745426b2b2d63ce677fb1da5638b13e9a2503
 
 COCOAPODS: 1.3.1

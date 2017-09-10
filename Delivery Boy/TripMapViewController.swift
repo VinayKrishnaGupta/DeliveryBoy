@@ -11,6 +11,8 @@ import GoogleMaps
 import CoreLocation
 import Alamofire
 import OpenInGoogleMaps
+import SVProgressHUD
+import Pulley
 
 class TripMapViewController: UIViewController, CLLocationManagerDelegate {
     
@@ -36,15 +38,14 @@ class TripMapViewController: UIViewController, CLLocationManagerDelegate {
         
         
         mapView = GMSMapView.map(withFrame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height), camera: GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!, zoom: 15))
-        mapView.isMyLocationEnabled = true
-        mapView.settings.compassButton = true
         mapView.settings.setAllGesturesEnabled(true)
         mapView.settings.compassButton = true
         mapView.isTrafficEnabled = true
         mapView.backgroundColor = UIColor.lightGray
         mapView.tintColor = UIColor.blue
         mapView.mapType = .hybrid
-        
+       
+
         
         
         let mapInsets = UIEdgeInsets(top: 80.0, left: 0.0, bottom: 0.0, right: 0.0)
@@ -135,9 +136,42 @@ class TripMapViewController: UIViewController, CLLocationManagerDelegate {
 }
 
     func CallCustomerButton(){
+        let callnumber : String = OngoingTask.value(forKey: "task_delivery_person_contact") as! String
+        let alert = UIAlertController(title: callnumber, message: "Call charges may apply", preferredStyle: UIAlertControllerStyle.alert)
         
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
+        let button2 = UIAlertAction(title: "Call", style: UIAlertActionStyle.default, handler: CallUser)
+        alert.addAction(button2)
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
         
     }
+    
+
+func CallUser(action:UIAlertAction) {
+    let callnumber : String = OngoingTask.value(forKey: "task_delivery_person_contact") as! String
+    callNumber(phoneNumber: callnumber)
+    
+    
+}
+    private func callNumber(phoneNumber:String) {
+        
+        if let phoneCallURL = URL(string: "tel://\(phoneNumber)") {
+            
+            let application:UIApplication = UIApplication.shared
+            if (application.canOpenURL(phoneCallURL)) {
+                if #available(iOS 10.0, *) {
+                    application.open(phoneCallURL, options: [:], completionHandler: nil)
+                } else {
+                    // Fallback on earlier versions
+                }
+            }
+        }
+    }
+
+    
     
     func CompleteTrip(){
         
@@ -165,6 +199,24 @@ class TripMapViewController: UIViewController, CLLocationManagerDelegate {
                 
                 
                 if let json = response.result.value {
+                
+                    SVProgressHUD.showSuccess(withStatus: "You have completed this task.")
+                    
+                    let mainContentVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapVC")
+                    
+                    let drawerContentVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TaskListVC")
+                    
+                    let pulleyController = PulleyViewController(contentViewController: mainContentVC, drawerViewController: drawerContentVC)
+                    pulleyController.initialDrawerPosition = .partiallyRevealed
+                    
+                    
+                    
+                    self.present(pulleyController, animated: true, completion: nil)
+
+                    
+                    
+                   // self.dismiss(animated: true, completion: nil)
+                    
                     
                   
                     
@@ -223,6 +275,8 @@ class TripMapViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
     
+        mapView.padding = UIEdgeInsetsMake(0, 0, 150, 0)
+        
         
         mapView.camera = GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!, zoom: 15)
         
@@ -278,7 +332,9 @@ class TripMapViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
      //   mapView.camera = GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!, zoom: 17)
         
-        
+        mapView.isMyLocationEnabled = true
+        mapView.settings.myLocationButton = true
+        mapView.settings.compassButton = true
         
         
         

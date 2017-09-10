@@ -48,14 +48,14 @@
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Country Code" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCl-jU-AER">
                                 <rect key="frame" x="16" y="198" width="56" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Registered Mobile Number" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVA-90-vIe">
                                 <rect key="frame" x="80" y="198" width="279" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -147,7 +147,7 @@
                     <navigationItem key="navigationItem" id="60t-80-Bki"/>
                     <connections>
                         <outlet property="TableView" destination="DSi-Ud-jgu" id="YfO-tl-c0I"/>
-                        <segue destination="wwq-GM-J2M" kind="show" identifier="TaskDetail" id="YYG-Ii-eqn"/>
+                        <segue destination="IAJ-pO-Zoy" kind="show" identifier="TaskDetail" id="HXy-Aj-Mwi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q0P-4i-f1x" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -308,7 +308,7 @@
                         <outlet property="StartDateTimeText" destination="HhQ-Tj-FNW" id="Rh5-rL-WAt"/>
                         <outlet property="VehicleTypeText" destination="uce-9H-PoE" id="RyB-rP-uzf"/>
                         <outlet property="pickupaddressText" destination="57F-oA-lRd" id="amY-2i-KpD"/>
-                        <segue destination="9ym-WG-rrK" kind="presentation" identifier="tripMap" id="KFM-5W-9Cb"/>
+                        <segue destination="9ym-WG-rrK" kind="show" identifier="tripMap" id="3L7-zQ-Swz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pLo-DS-7Ai" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -566,6 +566,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="qpD-XP-2he"/>
-        <segue reference="YYG-Ii-eqn"/>
+        <segue reference="vAP-IC-skt"/>
     </inferredMetricsTieBreakers>
 </document>
