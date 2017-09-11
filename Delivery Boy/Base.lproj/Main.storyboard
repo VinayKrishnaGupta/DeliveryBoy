@@ -147,7 +147,7 @@
                     <navigationItem key="navigationItem" id="60t-80-Bki"/>
                     <connections>
                         <outlet property="TableView" destination="DSi-Ud-jgu" id="YfO-tl-c0I"/>
-                        <segue destination="wwq-GM-J2M" kind="show" identifier="TaskDetail" id="Tdp-gv-5aa"/>
+                        <segue destination="IAJ-pO-Zoy" kind="show" identifier="TaskDetail" id="Vqw-x1-pXI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q0P-4i-f1x" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -566,6 +566,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="qpD-XP-2he"/>
-        <segue reference="Tdp-gv-5aa"/>
+        <segue reference="Vqw-x1-pXI"/>
     </inferredMetricsTieBreakers>
 </document>
